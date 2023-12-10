@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import Cohere
-from langchain.tools import DuckDuckGoSearch
+from langchain.tools import _import_ddg_search_tool_DuckDuckGoSearchRun as DuckDuckGoSearch
 from langchain.tools import Tool
 from langchain.agents import initialize_agent
 
