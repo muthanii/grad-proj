@@ -2,10 +2,33 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import Cohere
+from langchain.tools import DuckDuckGoSearch
+from langchain.tools import Tool
+from langchain.agents import initialize_agent
 
 load_dotenv()
 
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+
+llm = Cohere(
+        cohere_api_key=COHERE_API_KEY
+    )
+
+search = DuckDuckGoSearch()
+
+tool = Tool(
+    name='DuckDuckGo Search',
+    func=search.run(),
+    description='Useful for searching for recent data.'
+)
+
+agent = initialize_agent(
+    agent='zero-shot-react-description',
+    tools=tool,
+    llm=llm,
+    verbose=True,
+    max_iterations=3
+)
 
 st.sidebar.title("Virtual Agent (Chatbot) using Open Artificial Intelligence")
 st.sidebar.write("This is the graduation project of students from University of Kufa, Department of Electronics and Communications Engineering. It is supervised by Lec. Ammar Mousa. It has been built with a Python backend of LangChain libary with integration from Cohere as the LLM used. The frontend was made possible and hosted by the Python library Streamlit.")
@@ -17,11 +40,9 @@ container = st.container()
 with container:
     st.title("Virtual Agent (Chatbot)", anchor=False)
 
+
 def generate_response(input_text):
-    llm = Cohere(
-        cohere_api_key=COHERE_API_KEY
-    )
-    return llm(input_text)
+    return agent.run(input_text)
 
 
 # Initialize chat history
