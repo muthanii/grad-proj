@@ -12,7 +12,7 @@ llm = Cohere(
         cohere_api_key=COHERE_API_KEY
     )
 
-tool = load_tools(["google-serper"], llm=llm)
+tool = load_tools(["google-search"], llm=llm)
 
 agent = initialize_agent(
     agent='zero-shot-react-description',
