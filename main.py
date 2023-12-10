@@ -1,18 +1,18 @@
 import os
 from dotenv import load_dotenv
 import streamlit as st
-from langchain.llms import OpenAI
+from langchain.llms import Cohere
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
 load_dotenv()
 
 # Loading the cohere API key
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 
 # Initializing the OpenAI object
-llm =OpenAI(
-        openai_api_key=OPENAI_API_KEY
+llm =Cohere(
+        cohere_api_key=COHERE_API_KEY
     )
 
 # Setting up the template
