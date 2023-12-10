@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import Cohere
-from langchain.tools import Tool
 from langchain.agents import initialize_agent, load_tools
 
 load_dotenv()
