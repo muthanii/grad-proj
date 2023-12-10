@@ -2,9 +2,8 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import Cohere
-from langchain.tools import DuckDuckGoSearchRun
 from langchain.tools import Tool
-from langchain.agents import initialize_agent
+from langchain.agents import initialize_agent, load_tools
 
 load_dotenv()
 
@@ -14,13 +13,7 @@ llm = Cohere(
         cohere_api_key=COHERE_API_KEY
     )
 
-search = DuckDuckGoSearchRun()
-
-tool = Tool(
-    name='DuckDuckGo Search',
-    func=search.run(),
-    description='Useful for searching for recent data.'
-)
+tool = load_tools(["searchapi"], llm=llm)
 
 agent = initialize_agent(
     agent='zero-shot-react-description',
