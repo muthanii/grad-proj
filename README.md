@@ -4,7 +4,7 @@ This is a graduation project supervised by Lec. Ammar Mousa of students from Uni
 
 ![Two examples being implemented on the website.](./img/GIF.gif)
 
-You can visit the website [here](https://grad-proj.streamlit.app/)
+You can visit the website [here](https://grad-proj.streamlit.app/).
 
 ## **TL;DR**
 
@@ -26,4 +26,4 @@ Once everything is done, you can customize the project and change it to your sui
 
 ## Contact
 
-You can easily contact me for debugging purposes on Telegram [here](https://t.me/muthanii)
+You can easily contact me for debugging purposes on Telegram [here](https://t.me/muthanii).

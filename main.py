@@ -1,15 +1,15 @@
 import os
 from dotenv import load_dotenv
 import streamlit as st
-from langchain.llms import Cohere
+from langchain.llms import OpenAI
 
 load_dotenv()
 
 # loading the cohere API key
-COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-llm = Cohere(
-        cohere_api_key=COHERE_API_KEY
+llm =OpenAI(
+        openai_api_key=OPENAI_API_KEY
     )
 
 # working on the sidebar
