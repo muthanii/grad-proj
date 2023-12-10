@@ -12,6 +12,7 @@ You can easily clone these files on your own working folder and use the followin
 
 ```bash
 git clone https://github.com/muthanii/grad-proj.git
+cd ./grad-proj
 python -m venv .venv
 ./venv/Scripts/activate
 pip install ./requirements.txt
