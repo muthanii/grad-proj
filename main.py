@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import Cohere
-from langchain.tools import DuckDuckGoSearchTool
+from langchain.utilities import WikipediaAPIWrapper
 from langchain.tools import Tool
 from langchain.agents import initialize_agent
 
@@ -14,10 +14,10 @@ llm = Cohere(
         cohere_api_key=COHERE_API_KEY
     )
 
-search = DuckDuckGoSearchTool()
+search = WikipediaAPIWrapper()
 
 tool = Tool(
-    name='DuckDuckGo Search',
+    name='Wikipedia',
     func=search.run(),
     description='Useful for searching for recent data.'
 )
