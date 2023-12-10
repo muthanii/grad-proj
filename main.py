@@ -5,12 +5,14 @@ from langchain.llms import Cohere
 
 load_dotenv()
 
+# loading the cohere API key
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 
 llm = Cohere(
         cohere_api_key=COHERE_API_KEY
     )
 
+# working on the sidebar
 st.sidebar.title("Virtual Agent (Chatbot) using Open Artificial Intelligence")
 st.sidebar.write("This is the graduation project of students from University of Kufa, Department of Electronics and Communications Engineering. It is supervised by Lec. Ammar Mousa. It has been built with a Python backend of LangChain libary with integration from Cohere as the LLM used. The frontend was made possible and hosted by the Python library Streamlit.")
 if st.sidebar.toggle("QR Code"):
@@ -21,7 +23,7 @@ container = st.container()
 with container:
     st.title("Virtual Agent (Chatbot)", anchor=False)
 
-
+# function to generate the response
 def generate_response(input_text):
     return llm(input_text)
 
