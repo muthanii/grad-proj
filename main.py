@@ -2,17 +2,31 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 
 load_dotenv()
 
-# loading the cohere API key
+# Loading the cohere API key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
+# Initializing the OpenAI object
 llm =OpenAI(
         openai_api_key=OPENAI_API_KEY
     )
 
-# working on the sidebar
+# Setting up the template
+template = """Question: {question}
+
+Answer: """
+
+# Setting up the prompt
+prompt = PromptTemplate(template=template, input_variables=["question"])
+
+# Initializing the chain
+llm_chain = LLMChain(prompt=prompt, llm=llm)
+
+# Working on the sidebar
 st.sidebar.title("Virtual Agent (Chatbot) using Open Artificial Intelligence")
 st.sidebar.write("This is the graduation project of students from University of Kufa, Department of Electronics and Communications Engineering. It is supervised by Lec. Ammar Mousa. It has been built with a Python backend of LangChain libary with integration from Cohere as the LLM used. The frontend was made possible and hosted by the Python library Streamlit.")
 if st.sidebar.toggle("QR Code"):
@@ -23,9 +37,9 @@ container = st.container()
 with container:
     st.title("Virtual Agent (Chatbot)", anchor=False)
 
-# function to generate the response
+# Function to generate the response
 def generate_response(input_text):
-    return llm(input_text)
+    return llm_chain.run(input_text)
 
 
 # Initialize chat history

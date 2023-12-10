@@ -1,4 +1,4 @@
-# Virtual agent (chatbot) using open artificial intelligence
+# Virtual agent (chatbot) using Open Artificial Intelligence
 
 This is a graduation project supervised by Lec. Ammar Mousa of students from University of Kufa's department of Electronics & Communications Engineering for the academic year of 2023/2024.
 
@@ -8,7 +8,7 @@ You can visit the website [here](https://grad-proj.streamlit.app/).
 
 ## **TL;DR**
 
-This project is based on the power of the Python library LangChain. It is an open source framework used to create AI apps and agents with a variety of LLM integrations and tools. The LLM chosen for being the most easy to use in our specific case was Cohere. Streamlit was used to make and host the user interface of this application. They had an amazing and easy to use APIs for LLM chatbot cases.
+This project is based on the power of the Python library LangChain. It is an open source framework used to create AI apps and agents with a variety of LLM integrations and tools. The LLM chosen for being the most easy to use in our specific case was OpenAI. Streamlit was used to make and host the user interface of this application. They had an amazing and easy to use APIs for LLM chatbot cases.
 
 ## Usage
 
