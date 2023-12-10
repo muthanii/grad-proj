@@ -15,7 +15,7 @@ st.sidebar.link_button("Contact", url="https://t.me/muthanii", use_container_wid
 st.sidebar.link_button("GitHub", url="https://github.com/muthanii/grad-proj", use_container_width=True)
 container = st.container()
 with container:
-    st.title("Virtual Agent (Chatbot)")
+    st.title("Virtual Agent (Chatbot)", anchor=False)
 
 def generate_response(input_text):
     llm = Cohere(
