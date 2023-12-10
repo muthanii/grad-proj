@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 from langchain.llms import Cohere
-from langchain.tools import DuckDuckGoSearch
+from langchain.tools import DuckDuckGoSearchRun
 from langchain.tools import Tool
 from langchain.agents import initialize_agent
 
@@ -14,7 +14,7 @@ llm = Cohere(
         cohere_api_key=COHERE_API_KEY
     )
 
-search = DuckDuckGoSearch()
+search = DuckDuckGoSearchRun()
 
 tool = Tool(
     name='DuckDuckGo Search',
