@@ -2,13 +2,15 @@ import os
 from dotenv import load_dotenv
 import streamlit as st
 import vertexai
-from langchain.llms import VertexAI
+from langchain.llms import Cohere
 
 load_dotenv()
 
-PROJECT_ID = os.getenv("PROJECT_ID")
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 
-vertexai.init(project=PROJECT_ID, location="us-central1")
+# PROJECT_ID = os.getenv("PROJECT_ID")
+
+# vertexai.init(project=PROJECT_ID, location="us-central1")
 
 st.sidebar.title("Virtual Agent (Chatbot) using Open Artificial Intelligence")
 st.sidebar.write("This is the graduation project of students from University of Kufa, Department of Electronics and Communications Engineering. It is supervised by Lec. Ammar Mousa. It has been built with a Python backend of LangChain libary with integration from Google Cloud's Vertex AI as the LLM used. The frontend was made possible and hosted by the Python library Streamlit.")
@@ -17,13 +19,8 @@ st.sidebar.link_button("Contact", url="https://t.me/muthanii")
 
 
 def generate_response(input_text):
-    llm = VertexAI(
-        model_name="text-bison@002",
-        max_output_tokens=1024,
-        temperature=temp,
-        top_p=0.8,
-        top_k=40,
-        verbose=True
+    llm = Cohere(
+        cohere_api_key=COHERE_API_KEY
     )
     return llm(input_text)
 
