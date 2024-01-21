@@ -10,7 +10,7 @@ def generate_response(user_input):
 
 # Working on the sidebar
 st.sidebar.title("Virtual Agent (Chatbot) using Open Artificial Intelligence")
-st.sidebar.write("This is the graduation project of students from University of Kufa, Department of Electronics and Communications Engineering. It is supervised by Lec. Ammar Mousa. It has been built with a Python backend of LangChain libary with integration from Cohere as the LLM used. The frontend was made possible and hosted by the Python library Streamlit.")
+st.sidebar.write("This is the graduation project of students from University of Kufa, Department of Electronics and Communications Engineering. It is supervised by Lec. Ammar Mousa. It has been built with a Python backend of LangChain libary with integration from Google's new Gemini Pro as the LLM used. The frontend was made possible and hosted by the Python library Streamlit.")
 if st.sidebar.toggle("QR Code"):
     st.sidebar.image("./img/QR.png")
 st.sidebar.link_button("Contact", url="https://t.me/muthanii", use_container_width=True)
