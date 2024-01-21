@@ -1,30 +1,12 @@
-import os
-from dotenv import load_dotenv
 import streamlit as st
-from langchain.llms import Cohere
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-load_dotenv()
+# Initializing the Gemini Pro model using the langchain library 
+llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=[YOUR_API_KEY]) # Get your API key here https://makersuite.google.com/app/apikey
 
-# Loading the cohere API key
-COHERE_API_KEY = os.getenv("COHERE_API_KEY")
-
-# Initializing the OpenAI object
-llm =Cohere(
-        cohere_api_key=COHERE_API_KEY
-    )
-
-# Setting up the template
-template = """Question: {question}
-
-Answer: """
-
-# Setting up the prompt
-prompt = PromptTemplate(template=template, input_variables=["question"])
-
-# Initializing the chain
-llm_chain = LLMChain(prompt=prompt, llm=llm)
+# Making the response generator function
+def generate_response(user_input):
+    return llm.invoke(user_input).content
 
 # Working on the sidebar
 st.sidebar.title("Virtual Agent (Chatbot) using Open Artificial Intelligence")
@@ -36,11 +18,6 @@ st.sidebar.link_button("GitHub", url="https://github.com/muthanii/grad-proj", us
 container = st.container()
 with container:
     st.title("Virtual Agent (Chatbot)", anchor=False)
-
-# Function to generate the response
-def generate_response(input_text):
-    return llm_chain.run(input_text)
-
 
 # Initialize chat history
 if "messages" not in st.session_state:
