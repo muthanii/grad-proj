@@ -10,7 +10,7 @@ You can visit the website [here](https://grad-proj.streamlit.app/).
 
 This project is based on the power of the Python library LangChain. It is an open source framework used to create AI apps and agents with a variety of LLM integrations and tools. The LLM chosen for being the most easy to use in our specific case was Google's new Gemini Pro. Streamlit was used to make and host the user interface of this application. They had an amazing and easy to use APIs for LLM chatbot cases.
 
-## Usage
+## Contribute
 
 You can easily clone these files on your own working folder and use the following commands. The following code is for Windows based systems with [git](https://git-scm.com/downloads) and [Python](https://www.python.org/downloads/) installed.
 
