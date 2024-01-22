@@ -2,7 +2,7 @@
 
 This is a graduation project supervised by Lec. Ammar Mousa of students from University of Kufa's department of Electronics & Communications Engineering for the academic year of 2023/2024.
 
-![Two examples being implemented on the website.](./img/GIF.gif)
+![Two examples being implemented on the website.](./img/video.mp4)
 
 You can visit the website [here](https://grad-proj.streamlit.app/).
 
