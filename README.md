@@ -1,4 +1,4 @@
-# Virtual agent (chatbot) using Open Artificial Intelligence
+# Esaalni: Virtual agent (chatbot) using Open Artificial Intelligence
 
 This is a graduation project supervised by Lec. Ammar Mousa of students from University of Kufa's department of Electronics & Communications Engineering for the academic year of 2023/2024.
 
