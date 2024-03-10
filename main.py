@@ -8,16 +8,24 @@ llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=[YOUR_API_KEY]) 
 def generate_response(user_input):
     return llm.invoke(user_input).content
 
+# Making the container for the results
+container = st.container()
+with container:
+    st.title("Esaalni", anchor=False)
+
 # Working on the sidebar
-st.sidebar.title("Virtual Agent (Chatbot) using Open Artificial Intelligence")
+st.sidebar.title("Esaalni: Virtual agent (chatbot) using open AI")
 st.sidebar.write("This is the graduation project of students from University of Kufa, Department of Electronics and Communications Engineering. It is supervised by Lec. Ammar Mousa. It has been built with a Python backend of LangChain library with integration from Google's new Gemini Pro as the LLM used. The frontend was made possible and hosted by the Python library Streamlit.")
 if st.sidebar.toggle("QR Code"):
     st.sidebar.image("./img/QR.png")
+if st.sidebar.button("Random Prompt", use_container_width=True):
+    prompts = ["Write a short story about a small girl in a kindgom.", "What are the symptoms of asthma?", "Translate the following into English: 中国是一个非常有趣的国家。", "اكتب لي ابياتا من الشعر عن الحاسبة و الذكاء الاصطناعي", 
+              "اشرحلي عن رياضة الفورملا 1", "Describe for me the Pythagorean theorem like I'm five."]
+    prompt = random.choice(prompts)
+    st.chat_message("user").markdown(prompt)
+    st.chat_message("assistant").markdown(generate_response(prompt))
 st.sidebar.link_button("Contact", url="https://t.me/muthanii", use_container_width=True)
 st.sidebar.link_button("GitHub", url="https://github.com/muthanii/grad-proj", use_container_width=True)
-container = st.container()
-with container:
-    st.title("Virtual Agent (Chatbot)", anchor=False)
 
 # Initialize chat history
 if "messages" not in st.session_state:
